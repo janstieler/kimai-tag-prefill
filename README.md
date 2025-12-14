@@ -1,6 +1,6 @@
 # Kimai Tag Prefill - "Default Tag"
 
-[![Badge](https://forthebadge.com/api/badges/generate?primaryLabel=Language&secondaryLabel=EN&primaryBGColor=%23555555&secondaryBGColor=%23D2AA26)](https://github.com/janstieler/kimai-tag-prefill/blob/main/README.md)
+[![Badge](https://forthebadge.com/api/badges/generate?primaryLabel=Sprache&secondaryLabel=DE&primaryBGColor=%23555555&secondaryBGColor=%23D2AA26)](https://github.com/janstieler/kimai-tag-prefill/blob/main/README.de.md)
 
 Automatically pre-select the "Default Tag" tag in the Kimai timesheet modal.
 

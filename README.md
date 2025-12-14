@@ -1,80 +1,80 @@
 # Kimai Tag Prefill - "Default Tag"
 
-[![Badge](https://forthebadge.com/api/badges/generate?primaryLabel=Sprache&secondaryLabel=DE&primaryBGColor=%23555555&secondaryBGColor=%23D2AA26)](https://github.com/janstieler/kimai-tag-prefill/blob/main/README.de.md)
+[![Badge](https://forthebadge.com/api/badges/generate?primaryLabel=Language&secondaryLabel=EN&primaryBGColor=%23555555&secondaryBGColor=%23D2AA26)](https://github.com/janstieler/kimai-tag-prefill/blob/main/README.md)
 
-Automatisches Vorauswählen des Tags "Default Tag" im Kimai Timesheet-Modal.
+Automatically pre-select the "Default Tag" tag in the Kimai timesheet modal.
 
-## Voraussetzungen
+## Prerequisites
 
-- Kimai 2.x Installation
-- Das Tag "Default Tag" muss in Kimai existieren (unter Tags verwalten)
+- Kimai 2.x installation
+- The tag "Default Tag" must exist in Kimai (under tag management)
 
 ## Installation
 
-### 1. EventSubscriber installieren
+### 1. Install EventSubscriber
 
-Kopiere die Datei `CustomJavascriptSubscriber.php` nach:
+Copy the file `CustomJavascriptSubscriber.php` to:
 
 ```
 ../src/EventSubscriber/CustomJavascriptSubscriber.php
 ```
 
-**Wichtig:** Passe den Pfad an deine Kimai-Installation an!
+**Important:** Adjust the path to match your Kimai installation!
 
-Berechtigungen setzen:
+Set permissions:
 ```bash
 chown www-data:www-data ../src/EventSubscriber/CustomJavascriptSubscriber.php
 chmod 644 ../src/EventSubscriber/CustomJavascriptSubscriber.php
 ```
 
-### 2. JavaScript-Datei installieren
+### 2. Install JavaScript file
 
-Erstelle zuerst das Verzeichnis (falls nicht vorhanden):
+First create the directory (if it doesn't exist):
 ```bash
 mkdir -p ../public/custom
 ```
 
-Kopiere die Datei `prefill-tags.js` nach:
+Copy the file `prefill-tags.js` to:
 
 ```
 ../public/custom/prefill-tags.js
 ```
 
-Berechtigungen setzen:
+Set permissions:
 ```bash
 chown www-data:www-data ../public/custom/prefill-tags.js
 chmod 644 ../public/custom/prefill-tags.js
 ```
 
-### 3. Cache leeren
+### 3. Clear cache
 
 ```bash
 bin/console cache:clear --env=prod
 ```
 
-### 4. Browser neu laden
+### 4. Reload browser
 
-Lade die Kimai-Seite mit einem harten Reload neu: **Strg+Shift+R**
+Reload the Kimai page with a hard refresh: **Ctrl+Shift+R**
 
-## Anpassungen
+## Customization
 
-Falls du einen **anderen Tag-Namen** verwenden möchtest, ändere in `prefill-tags.js` die Zeile:
+If you want to use a **different tag name**, change this line in `prefill-tags.js`:
 
 ```javascript
 if (ts.options[key].text === 'Default Tag') {
 ```
 
-Ersetze `'Default Tag'` mit deinem gewünschten Tag-Namen.
+Replace `'Default Tag'` with your desired tag name.
 
-## Update-Sicherheit
+## Update Safety
 
-✅ Beide Dateien sind **update-sicher**:
-- `/src/EventSubscriber/` wird bei Updates nicht überschrieben
-- `/public/custom/` wird bei Updates nicht überschrieben
+✅ Both files are **update-safe**:
+- `/src/EventSubscriber/` will not be overwritten during updates
+- `/public/custom/` will not be overwritten during updates
 
-## Deinstallation
+## Uninstallation
 
-Einfach beide Dateien löschen und Cache leeren:
+Simply delete both files and clear the cache:
 
 ```bash
 rm ../src/EventSubscriber/CustomJavascriptSubscriber.php
@@ -83,22 +83,22 @@ cd ..
 bin/console cache:clear --env=prod
 ```
 
-## Lizenz
+## License
 
-Dieses Projekt ist unter der **GNU Affero General Public License v3.0 (AGPL-3.0)** lizenziert.
+This project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
 
-Das bedeutet:
-- ✅ Sie können den Code frei nutzen, ändern und verteilen
-- ✅ Auch kommerzielle Nutzung ist erlaubt
-- ⚠️ Änderungen müssen ebenfalls unter AGPL-3.0 veröffentlicht werden
-- ⚠️ Bei Nutzung über Netzwerk muss der Quellcode bereitgestellt werden
+This means:
+- ✅ You can freely use, modify, and distribute the code
+- ✅ Commercial use is allowed
+- ⚠️ Modifications must also be published under AGPL-3.0
+- ⚠️ When used over a network, source code must be made available
 
-Siehe LICENSE Datei für Details oder https://www.gnu.org/licenses/agpl-3.0.txt
+See the LICENSE file for details or https://www.gnu.org/licenses/agpl-3.0.txt
 
 ## Support
 
-Bei Problemen prüfe:
-1. Existiert das Tag "Default Tag" in Kimai?
-2. Sind die Dateien an den richtigen Orten?
-3. Wurde der Cache geleert?
-4. Browser-Cache geleert? (Strg+Shift+R)
+If you encounter problems, check:
+1. Does the tag "Default Tag" exist in Kimai?
+2. Are the files in the correct locations?
+3. Was the cache cleared?
+4. Browser cache cleared? (Ctrl+Shift+R)

@@ -1,2 +1,2 @@
 # kimai-tag-prefill
-Javscript which prefill a new timeentry with a tag
+JavaScript that automatically prefills new time entries with a default tag

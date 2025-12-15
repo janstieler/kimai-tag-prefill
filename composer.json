@@ -1,0 +1,19 @@
+{
+    "name": "janfrederik/tag-prefill-bundle",
+    "description": "Automatisches Tag-Prefill mit Backend-Konfiguration",
+    "type": "kimai-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jan-Frederik",
+            "email": "kontakt@janstieler.de"
+        }
+    ],
+    "extra": {
+        "kimai": {
+            "require": 20000,
+            "name": "TagPrefillBundle"
+        }
+    }
+}

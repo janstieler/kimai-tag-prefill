@@ -16,7 +16,10 @@ Automatisches Vorauswählen des Tags "Default Tag" im Kimai Timesheet-Modal.
 Kopiere die Datei `CustomJavascriptSubscriber.php` nach:
 
 ```
-../src/EventSubscriber/CustomJavascriptSubscriber.php
+sudo -u www-data mkdir -p src/EventSubscriber
+sudo -u www-data wget -O src/EventSubscriber/CustomJavascriptSubscriber.php \
+  https://raw.githubusercontent.com/janstieler/kimai-tag-prefill/main/CustomJavascriptSubscriber.php
+
 ```
 
 **Wichtig:** Passe den Pfad an deine Kimai-Installation an!
@@ -31,7 +34,9 @@ chmod 644 ../src/EventSubscriber/CustomJavascriptSubscriber.php
 
 Erstelle zuerst das Verzeichnis (falls nicht vorhanden):
 ```bash
-mkdir -p ../public/custom
+sudo -u www-data mkdir -p public/custom
+sudo -u www-data wget -O public/custom/prefill-tags.js \
+  https://raw.githubusercontent.com/janstieler/kimai-tag-prefill/main/prefill-tags.js
 ```
 
 Kopiere die Datei `prefill-tags.js` nach:

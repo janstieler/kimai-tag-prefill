@@ -55,6 +55,7 @@ chmod 644 ../public/custom/prefill-tags.js
 
 ```bash
 bin/console cache:clear --env=prod
+bin/console cache:warmup --env=prod
 ```
 
 ### 4. Browser neu laden

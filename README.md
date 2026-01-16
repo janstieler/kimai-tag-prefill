@@ -16,7 +16,9 @@ Automatically pre-select the "Default Tag" tag in the Kimai timesheet modal.
 Copy the file `CustomJavascriptSubscriber.php` to:
 
 ```
-../src/EventSubscriber/CustomJavascriptSubscriber.php
+sudo -u www-data mkdir -p src/EventSubscriber
+sudo -u www-data wget -O src/EventSubscriber/CustomJavascriptSubscriber.php \
+  https://raw.githubusercontent.com/janstieler/kimai-tag-prefill/main/CustomJavascriptSubscriber.php
 ```
 
 **Important:** Adjust the path to match your Kimai installation!
@@ -31,7 +33,9 @@ chmod 644 ../src/EventSubscriber/CustomJavascriptSubscriber.php
 
 First create the directory (if it doesn't exist):
 ```bash
-mkdir -p ../public/custom
+sudo -u www-data mkdir -p public/custom
+sudo -u www-data wget -O public/custom/prefill-tags.js \
+  https://raw.githubusercontent.com/janstieler/kimai-tag-prefill/main/prefill-tags.js
 ```
 
 Copy the file `prefill-tags.js` to:
@@ -50,6 +54,7 @@ chmod 644 ../public/custom/prefill-tags.js
 
 ```bash
 bin/console cache:clear --env=prod
+bin/console cache:warmup --env=prod
 ```
 
 ### 4. Reload browser
